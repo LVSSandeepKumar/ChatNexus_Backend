@@ -1,11 +1,17 @@
-import {Router} from "express";
-import { getUserInfo, Login, Signup } from "../controllers/AuthController.js";
+import { Router } from "express";
+import {
+  getUserInfo,
+  Login,
+  Signup,
+  updateProfile,
+} from "../controllers/AuthController.js";
 import { verifyToken } from "../middlewares/AuthMiddleware.js";
 
 const authRoutes = Router();
 
 authRoutes.post("/signup", Signup);
 authRoutes.post("/login", Login);
-authRoutes.get("/user-info",verifyToken, getUserInfo);
+authRoutes.get("/user-info", verifyToken, getUserInfo);
+authRoutes.post("/update-profile", verifyToken, updateProfile);
 
 export default authRoutes;
