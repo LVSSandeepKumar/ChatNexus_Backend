@@ -4,6 +4,7 @@ import {
   deleteProfileImage,
   getUserInfo,
   Login,
+  logout,
   Signup,
   updateProfile,
 } from "../controllers/AuthController.js";
@@ -23,5 +24,6 @@ authRoutes.post("/add-profile-image",
   addProfileImage
 );
 authRoutes.delete("/remove-profile-image", verifyToken, deleteProfileImage);
+authRoutes.post("/logout", logout);
 
 export default authRoutes;
